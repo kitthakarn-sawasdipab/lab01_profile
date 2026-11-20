@@ -1,8 +1,8 @@
-// Lab L1 tests: the cases from the "Test it" slide as widget tests.
+﻿// Lab L1 tests: the cases from the "Test it" slide as widget tests.
 //
 // They are all skipped in the starter because the counter app does not have
 // your HomePage yet. When you finish the step named in each TODO, change
-// `skip: true` to `skip: false` (or delete the skip line) and run:
+// `skip: false` to `skip: false` (or delete the skip line) and run:
 //   flutter test
 //
 // Note: testWidgets() only accepts a bool for `skip`, so the reason is
@@ -40,7 +40,7 @@ void main() {
     expect(find.widgetWithText(FilledButton, 'Like'), findsOneWidget);
   },
       // TODO(Step 6): set to false when the Like button and "Likes: 0" exist.
-      skip: true);
+      skip: false);
 
   // Normal: Tap Like once -> "Likes: 1"
   testWidgets('Normal: tapping Like once shows Likes: 1', (tester) async {
@@ -53,7 +53,7 @@ void main() {
     expect(find.text('Likes: 0'), findsNothing);
   },
       // TODO(Step 6): set to false when _like() calls setState.
-      skip: true);
+      skip: false);
 
   // Boundary: Tap Like 20 times fast -> "Likes: 20", no error
   testWidgets('Boundary: 20 fast taps show Likes: 20 with no error',
@@ -70,7 +70,7 @@ void main() {
     expect(tester.takeException(), isNull);
   },
       // TODO(Step 6): set to false when the Like button works.
-      skip: true);
+      skip: false);
 
   // Boundary: Rotate to landscape -> Still centred, no overflow
   testWidgets('Boundary: landscape layout is centred with no overflow',
@@ -94,7 +94,7 @@ void main() {
     expect(rect.bottom, lessThanOrEqualTo(360));
   },
       // TODO(Step 6): set to false when your full screen is built.
-      skip: true);
+      skip: false);
 
   // Reload: 3 taps, then r -> still 3.
   // A host test cannot press r, so we rebuild the same widget tree, which is
@@ -114,7 +114,7 @@ void main() {
     expect(find.text('Likes: 3'), findsOneWidget);
   },
       // TODO(Step 7): set to false when you have done the r / R experiment.
-      skip: true);
+      skip: false);
 
   // Reload: then R -> back to 0.
   // Hot restart throws the old widget tree (and its State) away and runs
@@ -133,9 +133,10 @@ void main() {
     expect(find.text('Likes: 0'), findsOneWidget);
   },
       // TODO(Step 7): set to false when you have done the r / R experiment.
-      skip: true);
+      skip: false);
 
   // Failure: Close emulator, flutter run -> "No device found" message.
   // This case is about the flutter tool, not the app, so it cannot be a
   // widget test. Run it by hand and write the exact message in answers.md.
 }
+
